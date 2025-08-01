@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall Guys Portal</title>
+    <link rel="icon" type="image/png" href="favicon (1).png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="A██LY█IS() W█R██O█EST█BI███Y = ██% W██M██L██TAT█S = ST███E N██ICE: F█R T██ SAF███ O█ T█E B█████RD█ME D█ N█T AL██W █N█ S██F O█ OT██R P█RS████L NE█R O█R W██████E">
+    <meta name="twitter:image" content="S█████████.png">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="A██LY█IS() W█R██O█EST█BI███Y = ██% W██M██L██TAT█S = ST███E N██ICE: F█R T██ SAF███ O█ T█E B█████RD█ME D█ N█T AL██W █N█ S██F O█ OT██R P█RS████L NE█R O█R W██████E">
+    <meta property="og:image" content="S█████████.png">
+    <meta property="og:type" content="website">
+    <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+        }
+
+        #background-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        #timer {
+            position: fixed;
+            bottom: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Titan One', sans-serif;
+            font-size: 3.5rem;
+            text-align: center;
+            z-index: 3;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(90deg, #ffb6c1, #ff69b4, #ffb6c1);
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @media (max-width: 768px) {
+            #timer {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img id="background-image" src="█████ GAT█W██.png" alt="Fall Guys Portal">
+    <div id="particles-js"></div>
+    <div id="timer"></div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 1000 } },
+                color: { value: '#ffffff' },
+                opacity: { value: 0.2, random: true, anim: { enable: true, speed: 0.5, opacity_min: 0.05 } },
+                size: { value: 1.5, random: true, anim: { enable: true, speed: 0.5, size_min: 0.5 } },
+                line_linked: { enable: false },
+                move: {
+                    enable: true,
+                    speed: 0.3,
+                    direction: 'none',
+                    random: true,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false,
+                    attract: { enable: false }
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: { onhover: { enable: false }, onclick: { enable: false } }
+            }
+        });
+
+        function startTimer() {
+            const endDate = new Date('2025-09-15T10:00:00+01:00');
+            const timerElement = document.getElementById('timer');
+
+            function updateTimer() {
+                const now = new Date();
+                const timeLeft = endDate - now;
+
+                if (timeLeft <= 0) {
+                    timerElement.textContent = '0s';
+                    return;
+                }
+
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                if (days > 0) {
+                    timerElement.textContent = `${days}d ${hours}h`;
+                } else if (hours > 0) {
+                    timerElement.textContent = `${hours}h ${minutes}m`;
+                } else if (minutes > 0) {
+                    timerElement.textContent = `${minutes}m ${seconds}s`;
+                } else {
+                    timerElement.textContent = `${seconds}s`;
+                }
+            }
+
+            updateTimer();
+            setInterval(updateTimer, 1000);
+        }
+
+        startTimer();
+    </script>
+</body>
+</html>
+																																									aHR0cHM6Ly9mYWxsZ3V5c3BvcnRhbC5jb20vMS8zLndhdg==		
