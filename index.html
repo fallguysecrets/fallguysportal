@@ -47,20 +47,20 @@
 
         #timer {
             position: fixed;
-            bottom: 25%;
+            top: 65%;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, -50%);
             font-family: 'Titan One', sans-serif;
             font-size: 3.5rem;
             text-align: center;
-            z-index: 3;
+            z-index: 10;
             text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             background: linear-gradient(90deg, #ffb6c1, #ff69b4, #ffb6c1);
             background-size: 200% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            color: transparent;
             animation: gradientShift 3s ease infinite;
-            position: relative;
             white-space: nowrap;
         }
 
@@ -76,8 +76,9 @@
             text-align: center;
             -webkit-text-stroke: 2px #ff69b4;
             -webkit-text-fill-color: transparent;
+            color: transparent;
             opacity: 1;
-            z-index: -1;
+            z-index: 9;
             white-space: nowrap;
             animation: ripple 1s ease-out infinite;
             animation-play-state: paused;
@@ -123,6 +124,7 @@
         @media (max-width: 768px) {
             #timer {
                 font-size: 2.5rem;
+                top: 70%;
             }
             #timer::before {
                 font-size: 2.5rem;
@@ -225,3 +227,5 @@
     </script>
 </body>
 </html>
+
+SECRETS -> REVEALED SOON
