@@ -170,13 +170,16 @@
         function startTimer() {
             const endDate = new Date('2025-09-16T10:00:00+01:00');
             const timerElement = document.getElementById('timer');
+            let timerEnded = false;
 
             function updateTimer() {
                 const now = new Date();
                 const timeLeft = endDate - now;
 
                 if (timeLeft <= 0) {
-                    timerElement.textContent = '0s';
+                    timerElement.textContent = 'CLICK/PRESS TO OPEN';
+                    timerElement.setAttribute('data-text', timerElement.textContent);
+                    timerEnded = true;
                     return;
                 }
 
@@ -203,30 +206,33 @@
 
             updateTimer();
             setInterval(updateTimer, 1000);
+
+            const donotAudio = document.getElementById('donot-audio');
+            const whereamiAudio = document.getElementById('whereami-audio');
+            const playButton = document.getElementById('play-button');
+            let clickCount = 0;
+
+            donotAudio.load();
+            whereamiAudio.load();
+
+            playButton.addEventListener('click', () => {
+                if (timerEnded) {
+                    window.location.href = 'https://www.youtube.com/watch?v=D3f9ndJS5e0';
+                    return;
+                }
+                clickCount++;
+                donotAudio.currentTime = 0;
+                donotAudio.play();
+                if (clickCount === 5) {
+                    whereamiAudio.currentTime = 0;
+                    whereamiAudio.play();
+                }
+            });
         }
 
         startTimer();
-
-        const donotAudio = document.getElementById('donot-audio');
-        const whereamiAudio = document.getElementById('whereami-audio');
-        const playButton = document.getElementById('play-button');
-        let clickCount = 0;
-
-        donotAudio.load();
-        whereamiAudio.load();
-
-        playButton.addEventListener('click', () => {
-            clickCount++;
-            donotAudio.currentTime = 0;
-            donotAudio.play();
-            if (clickCount === 5) {
-                whereamiAudio.currentTime = 0;
-                whereamiAudio.play();
-            }
-        });
     </script>
 </body>
 </html>
 
-SECRETS -> REVEALED SOON
-
+THE FALL GUYS SECRETS WILL BE REVEALED
